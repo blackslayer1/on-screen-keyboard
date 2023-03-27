@@ -1,0 +1,126 @@
+.App {
+  text-align: center;
+}
+
+body{
+  height: 100vh;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  .content{
+    position: relative;
+    bottom: 30px;
+  }
+  header{
+    position: relative;
+    top: 105px;
+    left: 25%;
+    background: darkgray;
+    width: 50%;
+    height: 50px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    .search{
+      margin-top: 8px;
+      width: 30%;
+      height: 35px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+  textarea{
+    position: relative;
+    width: 49.7%;
+    top: 104.5px;
+    left: 0.5px;
+    resize: none;
+    height: 180px;
+    outline: none;
+    font-size: 25px;
+  }
+  .keyboard{
+    position: relative;
+    left: 25%;
+    top: 100px;
+    background: lightgray;
+    height: 270px;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    .keyboardContent{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px;
+      .key{
+        background: white;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s all;
+        &:hover{
+          background: darken(white, 10%);
+        }
+      }
+      .shift{
+        width: 110px;
+        height: 45px;
+        background: rgb(165, 165, 165);
+      }
+      .space{
+        width: 40%;
+        height: 45px;
+      }
+    }
+  }
+}
+
+.toggle {
+  all: unset;
+  background-color: dodgerblue;
+  color: white;
+  width: 150px;
+  padding: 10px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 250px;
+  .dropDown{
+    transition: 0.3s all;
+  }
+}
+
+.list {
+  display: none;
+  background: rgb(218, 218, 218);
+  height: 20vh;
+  position: absolute;
+  top: 132px;
+  left: 592px;
+  width: 130px;
+  li:last-child{
+    border-bottom: none;
+  }
+  a{
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.list-item {
+  position: relative;
+  right: 33px;
+  list-style: none;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+  padding: 10px;
+  width: 100%;
+  &:hover{
+    background-color: dodgerblue;
+    color: #fff;
+  }
+}
