@@ -1,6 +1,5 @@
 import './App.scss';
 import { MouseEvent, useState, useEffect, ChangeEvent } from 'react';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 
 function App() {
@@ -27,6 +26,8 @@ function App() {
       }
     } else if(key.classList.contains('enter')){
       textarea.value += "\n";
+    } else if(key.classList.contains('tab')){
+      textarea.value += "\t";
     }
     textarea.focus();
   }
@@ -60,6 +61,28 @@ function App() {
     }
   }, [shiftOn])
 
+  useEffect(() => {
+    const keys = Array.from(document.getElementsByClassName('key'));
+    function handleKeyDown(e: any) {
+      keys.map((key)=>{
+        
+        if((key.innerHTML).toUpperCase() === (e.key).toUpperCase()){
+          (key as HTMLDivElement).style.background="darkgray";
+          setTimeout(()=>{
+            (key as HTMLDivElement).style.background="white";
+          }, 200)
+        }
+      })
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Don't forget to clean up
+    return function cleanup() {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, []);
+
   return (
     <div className="App">
       <div className="content">
@@ -83,7 +106,7 @@ function App() {
           <div className="key" onClick={typeKey}>-</div>
           <div className="key" onClick={typeKey}>=</div>
           <div className="key backspace" onClick={functionKey} style={{background: "rgb(165, 165, 165)"}}>del</div>
-          <div className="key" onClick={functionKey} style={{background: "rgb(165, 165, 165)"}}>tab</div>
+          <div className="key tab" onClick={functionKey} style={{background: "rgb(165, 165, 165)"}}>tab</div>
           <div className="key letter" onClick={typeKey}>a</div>
           <div className="key letter" onClick={typeKey}>s</div>
           <div className="key letter" onClick={typeKey}>d</div>

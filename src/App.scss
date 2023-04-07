@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Tball;
+  src: url('./Tball.otf');
+}
+
 .App {
   text-align: center;
 }
@@ -35,6 +40,7 @@ body{
     height: 180px;
     outline: none;
     font-size: 25px;
+    font-family: Tball;
   }
   .keyboard{
     position: relative;
